@@ -1,0 +1,19 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Mac Classic.tmTheme",
+	"font_size": 11,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"rulers":
+	[
+		0,
+		120
+	],
+	"vintage_ctrl_keys": true,
+	"vintage_start_in_command_mode": true,
+	"word_wrap": true
+}
