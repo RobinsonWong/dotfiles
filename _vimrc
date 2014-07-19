@@ -33,8 +33,9 @@ endfunction
 cd C:\Users\Robinson\Documents\VimTextDocs  " Set Default Work Directory
 set number
 set noswapfile          " No Swap temp files
-syntax on
+set nobackup            " No Backup files
 set history=200
+syntax on
 filetype on   			" Eable file type detetion
 filetype indent on 		" Eable file type specific indenting
 set showcmd 			" This shows what your typing as a command.
