@@ -32,8 +32,9 @@ endfunction
 " Robinson Settings
 cd C:\Users\Robinson\Documents\VimTextDocs  " Set Default Work Directory
 set number
-set noswapfile          " No Swap temp files
+" set noswapfile        " No Swap temp files
 set nobackup            " No Backup files
+set nowritebackup       " No Backup files
 set history=200
 syntax on
 filetype on   			" Eable file type detetion
@@ -69,7 +70,6 @@ endif
 
 " Insert Current Date Time
 " nnoremap <F5> "=strftime("%c")<CR>P
-" inoremap <F5> <C-R>=strftime("%c")<CR>
 " nnoremap <F5> "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
 nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M:%S")<CR>P
 inoremap <F5> <C-R>=strftime("%A, %d %B %Y %H:%M:%S")<CR>
