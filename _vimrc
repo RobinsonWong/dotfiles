@@ -102,7 +102,8 @@ filetype on
 :inoremap <F5> <C-R>=strftime("%c")<CR>
 
 
-
+" Other settings
+autocmd BufNewFile,BufFilePre,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn set filetype=markdown
 
 
 "--------------------------------------------------
