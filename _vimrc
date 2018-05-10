@@ -1,6 +1,8 @@
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 behave mswin
 
 set diffexpr=MyDiff()
@@ -28,51 +30,82 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-" =====================================
-" Robinson Settings
-cd C:\Users\Robinson\Documents\VimTextDocs  " Set Default Work Directory
-set number
-" set noswapfile        " No Swap temp files
-set nobackup            " No Backup files
-set nowritebackup       " No Backup files
-set history=200
-syntax on
-filetype on   			" Eable file type detetion
-filetype indent on 		" Eable file type specific indenting
-set showcmd 			" This shows what your typing as a command.
 
-" searching
-set hlsearch    		" Highlight things that we find with the search.
-set ignorecase			" search ignoring case
-set showmatch			" show matching bracet
+exec 'cd ' . fnameescape('E:\code-repos-host\text-notes')
+"--------------------------------------------------
+" Customer Settings by Robinson Wong : Begin
+"--------------------------------------------------
+set nobackup
+set nowritebackup
+set noswapfile
+set history=500
+set laststatus=2
+set autowrite
 
-set autoindent smartindent	" auto/smart indent
-set expandtab			" Use spaces instead of tabs
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-
-set wildmenu			" bash like auto-completion
-set wildmode=list:longest	" 
-
-if has("gui_running")
-    set lines=25 columns=100
-else 
-"    colorscheme darkblue	
+set go=     " set no tool bar and menu bar
+color dracula
+if has('gui_running')
+  set guifont=Courier\ New:h13
 endif
+" set menu to english
+let $LANG='en_US'
+set langmenu=en_US
+set fileencodings=utf-8,ucs-bom,utf-16,gbk,gb2312,gb18030,big5,latin1
 
-if has("gui_running")
-    set guifont=Courier\ New:h11
-endif   
-"set guifont=Consolas:h11
-"set hidden
+set nu
+set ruler
+set lines=35 columns=120
+set tabstop=4 shiftwidth=4 shiftwidth=4
+set expandtab   " replace tab with space
+set shiftround
+set showcmd
+" set hlsearch
+set incsearch
+set cursorline  " Highlight the current line
 
-" Insert Current Date Time
-" nnoremap <F5> "=strftime("%c")<CR>P
-" nnoremap <F5> "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
-nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M:%S")<CR>P
-inoremap <F5> <C-R>=strftime("%A, %d %B %Y %H:%M:%S")<CR>
-" =====================================
+" Display extra whitespace
+set list listchars=tab:>-,trail:.,extends:>,precedes:<
 
+" Auto Complete Char
+:inoremap ( ()<ESC>i
+:inoremap ) <c-r>=ClosePair(')')<CR>
+:inoremap { {<CR>}<ESC>O
+:inoremap } <c-r>=ClosePair('}')<CR>
+:inoremap [ []<ESC>i
+:inoremap ] <c-r>=ClosePair(']')<CR>
+:inoremap " ""<ESC>i
+:inoremap ' ''<ESC>i
+function! ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endfunction
+
+"--------------------------------------------------
+" Plugin Management
+
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+call vundle#begin()
+
+" Install Plugins below
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+call vundle#end()
+filetype plugin indent on
+filetype on
+"--------------------------------------------------
+:nnoremap <F5> "=strftime("%c")<CR>P
+:inoremap <F5> <C-R>=strftime("%c")<CR>
+
+
+
+
+
+"--------------------------------------------------
+" Customer Settings by Robinson Wong : End
+"--------------------------------------------------
 
