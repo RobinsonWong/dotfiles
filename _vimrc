@@ -103,7 +103,7 @@ filetype on
 
 
 " Other settings
-autocmd BufNewFile,BufFilePre,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn set filetype=markdown
+autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown
 
 
 "--------------------------------------------------
