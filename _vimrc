@@ -94,11 +94,20 @@ set cursorline  " Highlight the current line
 set list listchars=tab:>-,trail:.,extends:>,precedes:<
 
 syntax enable
+" set background=light
 set background=dark
 colorscheme solarized
 " color dracula " set color theme to dracula
 
 " --------------------------------------------------
+" Delete current line
+nnoremap - dd
+:inoremap <c-d> <esc>ddi
+
+" Uppercase the word
+:inoremap <c-u> <esc>viw~
+:nnoremap <c-u> viw~
+
 nnoremap <F3> :NERDTree<CR>
 :nnoremap <F5> "=strftime("%c")<CR>P
 :inoremap <F5> <C-R>=strftime("%c")<CR>
@@ -106,6 +115,7 @@ nnoremap <F3> :NERDTree<CR>
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown
 
+" --------------------------------------------------
 
 "--------------------------------------------------
 " Customer Settings by Robinson Wong : End
