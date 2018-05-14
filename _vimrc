@@ -1,8 +1,6 @@
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
 behave mswin
 
 set diffexpr=MyDiff()
@@ -16,22 +14,27 @@ function MyDiff()
   if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
   let arg3 = v:fname_out
   if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
   if $VIMRUNTIME =~ ' '
     if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
     else
       let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
     endif
   else
     let cmd = $VIMRUNTIME . '\diff'
   endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
 endfunction
 
 "--------------------------------------------------
-" Customer Settings by Robinson Wong : Begin
+" Customer Settings Begin
 "--------------------------------------------------
 filetype off
 
@@ -67,9 +70,9 @@ set autowrite
 
 set go=     " set no tool bar and menu bar
 if has('gui_running')
-  " set guifont=Courier\ New:h13
-  " set guifont=Source\ Code\ Pro:h14
-  set guifont=Consolas:h14
+  " set guifont=Courier\ New:h15
+  " set guifont=Source\ Code\ Pro:h15
+  set guifont=Consolas:h15
 endif
 " set menu to english
 let $LANG='en_US'
@@ -83,6 +86,7 @@ set tabstop=2 shiftwidth=2 shiftwidth=2
 set expandtab   " replace tab with space
 set shiftround
 set showcmd
+set nowrap
 " set for backspace
 set backspace=2
 set backspace=indent,eol,start
@@ -91,7 +95,7 @@ set incsearch
 set cursorline  " Highlight the current line
 
 " Display extra whitespace
-set list listchars=tab:>-,trail:.,extends:>,precedes:<
+set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
 
 syntax enable
 " set background=light
@@ -100,24 +104,30 @@ colorscheme solarized
 " color dracula " set color theme to dracula
 
 " --------------------------------------------------
-" Delete current line
-nnoremap - dd
+:let mapleader = ","
+:nnoremap <leader>ev :vsp $MYVIMRC<cr>
+:nnoremap <leader>sv :so $MYVIMRC<cr>
+
+:inoremap jk <esc>
+:inoremap <esc> <nop>
+
+" Delete one line
+:nnoremap - dd
 :inoremap <c-d> <esc>ddi
 
 " Uppercase the word
 :inoremap <c-u> <esc>viw~
 :nnoremap <c-u> viw~
 
-nnoremap <F3> :NERDTree<CR>
+:nnoremap <F3> :NERDTree<CR>
 :nnoremap <F5> "=strftime("%c")<CR>P
 :inoremap <F5> <C-R>=strftime("%c")<CR>
 
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown
 
-" --------------------------------------------------
 
 "--------------------------------------------------
-" Customer Settings by Robinson Wong : End
+" Customer Settings End
 "--------------------------------------------------
 
