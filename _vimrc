@@ -107,6 +107,7 @@ colorscheme solarized
 :let mapleader = ","
 :nnoremap <leader>ev :vsp $MYVIMRC<cr>
 :nnoremap <leader>sv :so $MYVIMRC<cr>
+:nnoremap <leader>w <c-w>
 
 :inoremap jk <esc>
 :inoremap <esc> <nop>
