@@ -53,6 +53,7 @@ Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-rails'
+Plugin 'vim-airline/vim-airline'
 
 " Color schemes
 Plugin 'flazz/vim-colorschemes'
@@ -70,9 +71,9 @@ set autowrite
 
 set go=     " set no tool bar and menu bar
 if has('gui_running')
-  " set guifont=Courier\ New:h15
-  " set guifont=Source\ Code\ Pro:h15
-  set guifont=Consolas:h15
+  " set guifont=Courier\ New:h16
+  " set guifont=Source\ Code\ Pro:h16
+  set guifont=Consolas:h16
 endif
 " set menu to english
 let $LANG='en_US'
@@ -81,7 +82,7 @@ set fileencodings=utf-8,ucs-bom,utf-16,gbk,gb2312,gb18030,big5,latin1
 
 set nu
 set ruler
-set lines=35 columns=120
+set lines=40 columns=140
 set tabstop=2 shiftwidth=2 shiftwidth=2
 set expandtab   " replace tab with space
 set shiftround
@@ -90,7 +91,7 @@ set nowrap
 " set for backspace
 set backspace=2
 set backspace=indent,eol,start
-" set hlsearch
+set hlsearch
 set incsearch
 set cursorline  " Highlight the current line
 
@@ -99,6 +100,8 @@ set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
 
 syntax enable
 " set background=light
+set t_Co=16
+let g:solarized_termcolors=16
 set background=dark
 colorscheme solarized
 " color dracula " set color theme to dracula
@@ -107,7 +110,7 @@ colorscheme solarized
 :let mapleader = ","
 :nnoremap <leader>ev :vsp $MYVIMRC<cr>
 :nnoremap <leader>sv :so $MYVIMRC<cr>
-:nnoremap <leader>w <c-w>
+:nnoremap <leader>w <c-w>w
 
 :inoremap jk <esc>
 :inoremap <esc> <nop>

@@ -19,6 +19,7 @@ Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-rails'
+Plugin 'vim-airline/vim-airline'
 
 " Color schemes
 Plugin 'flazz/vim-colorschemes'
@@ -56,7 +57,7 @@ set nowrap
 " set for backspace
 set backspace=2
 set backspace=indent,eol,start
-" set hlsearch
+set hlsearch
 set incsearch
 set cursorline  " Highlight the current line
 
@@ -74,7 +75,7 @@ colorscheme solarized
 :let mapleader = ","
 :nnoremap <leader>ev :vsp $MYVIMRC<cr>
 :nnoremap <leader>sv :so $MYVIMRC<cr>
-:nnoremap <leader>w <c-w>
+:nnoremap <leader>w <c-w>w
 
 :inoremap jk <esc>
 :inoremap <esc> <nop>
