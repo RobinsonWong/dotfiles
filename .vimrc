@@ -38,7 +38,7 @@ set autowrite
 
 set go=     " set no tool bar and menu bar
 if has('gui_running')
-  set guifont=Courier\ New:h16
+  set guifont=Courier\ New:h18
   " set guifont=Source\ Code\ Pro:h15
   " set guifont=Consolas:h15
 endif
@@ -86,7 +86,7 @@ endif
 :nnoremap <leader>w <c-w>w
 
 :inoremap jk <esc>
-:inoremap <esc> <nop>
+" :inoremap <esc> <nop>
 
 " Delete one line
 :nnoremap - dd
