@@ -22,7 +22,7 @@ filetype plugin indent on
 set nu
 set ruler
 " set lines=30 columns=120 " only for GVIM on windows
-set tabstop=2 shiftwidth=2 shiftwidth=2
+set tabstop=2 shiftwidth=2
 set expandtab   " replace tab with space
 set shiftround
 set showcmd
@@ -47,7 +47,8 @@ set langmenu=en_US
 set fileencodings=utf-8,ucs-bom,utf-16,gbk,gb2312,gb18030,big5,latin1
 
 " Display extra whitespace
-set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+" set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+set list listchars=tab:>-,trail:.,extends:>,precedes:<
 
 syntax enable
 set termguicolors
@@ -68,7 +69,7 @@ nnoremap <leader>sv :so $MYVIMRC<cr>
 nnoremap <leader>w <c-w>w
 
 inoremap jk <esc>
-inoremap <esc> <nop>
+" inoremap <esc> <nop>
 
 " Delete one line
 nnoremap - dd
@@ -84,6 +85,12 @@ inoremap <F5> <C-R>=strftime("%c")<CR>
 
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown
+
+autocmd FileType html setlocal ts=2 sw=2 expandtab
+autocmd FileType ruby setlocal ts=2 sw=2 expandtab
+
+autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType java setlocal ts=4 sw=4 sts=4 expandtab
 
 
 "--------------------------------------------------

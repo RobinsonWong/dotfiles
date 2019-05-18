@@ -63,7 +63,8 @@ set incsearch
 set cursorline  " Highlight the current line
 
 " Display extra whitespace
-set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+" set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+set list listchars=tab:>-,trail:.,extends:>,precedes:<
 
 " let g:solarzied_termtrans=1
 " let g:solarzied_termtrans=1
