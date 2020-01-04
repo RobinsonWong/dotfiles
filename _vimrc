@@ -39,7 +39,7 @@ endfunction
 filetype off
 
 " Plugin Management
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim
 call vundle#begin()
 " Let Vundle manage itself
 Plugin 'VundleVim/Vundle.vim'
@@ -61,7 +61,7 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 filetype plugin indent on
 "--------------------------------------------------
-:exec 'cd ' . fnameescape('E:\code-repos-host')
+:exec 'cd ' . fnameescape('D:\repos-mine\')
 set nobackup
 set nowritebackup
 set noswapfile
@@ -73,21 +73,22 @@ set go=     " set no tool bar and menu bar
 if has('gui_running')
   " set guifont=Courier\ New:h16
   " set guifont=Source\ Code\ Pro:h16
-  set guifont=Consolas:h16
+  set guifont=Consolas:h14
 endif
 " set menu to english
 let $LANG='en_US'
 set langmenu=en_US
+set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,utf-16,gbk,gb2312,gb18030,big5,latin1
 
 set nu
 set ruler
-set lines=40 columns=140
-set tabstop=2 shiftwidth=2 shiftwidth=2
+set lines=35 columns=140
+set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab   " replace tab with space
 set shiftround
 set showcmd
-set nowrap
+set wrap
 " set for backspace
 set backspace=2
 set backspace=indent,eol,start
@@ -96,7 +97,9 @@ set incsearch
 set cursorline  " Highlight the current line
 
 " Display extra whitespace
-set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+" set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+"set list listchars=trail:.,extends:>,precedes:<
+set list listchars=tab:>-,trail:.,extends:>,precedes:<
 
 syntax enable
 " set background=light
@@ -113,7 +116,7 @@ colorscheme solarized
 :nnoremap <leader>w <c-w>w
 
 :inoremap jk <esc>
-:inoremap <esc> <nop>
+" :inoremap <esc> <nop>
 
 " Delete one line
 :nnoremap - dd
@@ -130,6 +133,29 @@ colorscheme solarized
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown
 
+" set indentation=2
+autocmd FileType html setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType ruby setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType python setlocal ts=2 sw=2 sts=2 expandtab
+
+" set indentation=4
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+"autocmd FileType scala setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
+
+
+" For startify
+" [Genereate ASCII Art](http://patorjk.com/software/taag/#p=display&h=0&f=Big&t=Hi%2C%20Robin!)
+let g:startify_custom_header = [
+\ '  _    _   _         _____            _       _           _ ',
+\ ' | |  | | (_)       |  __ \          | |     (_)         | |',
+\ ' | |__| |  _        | |__) |   ___   | |__    _   _ __   | |',
+\ ' |  __  | | |       |  _  /   / _ \  | |_ \  | | | |_ \  | |',
+\ ' | |  | | | |  _    | | \ \  | (_) | | |_) | | | | | | | |_|',
+\ ' |_|  |_| |_| ( )   |_|  \_\  \___/  |_.__/  |_| |_| |_| (_)',
+\ '              |/                                            ',
+\ '',
+\]
 
 "--------------------------------------------------
 " Customer Settings End
