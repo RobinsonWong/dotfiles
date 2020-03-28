@@ -73,7 +73,7 @@ set go=     " set no tool bar and menu bar
 if has('gui_running')
   " set guifont=Courier\ New:h16
   " set guifont=Source\ Code\ Pro:h16
-  set guifont=Consolas:h14
+  set guifont=Consolas:h13
 endif
 " set menu to english
 let $LANG='en_US'
@@ -83,7 +83,7 @@ set fileencodings=utf-8,ucs-bom,utf-16,gbk,gb2312,gb18030,big5,latin1
 
 set nu
 set ruler
-set lines=35 columns=140
+set lines=35 columns=120
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab   " replace tab with space
 set shiftround
@@ -115,6 +115,11 @@ colorscheme solarized
 :nnoremap <leader>sv :so $MYVIMRC<cr>
 :nnoremap <leader>w <c-w>w
 
+:noremap <C-I> <C-A>
+" remap increase /decrease by +/-
+" :nnoremap <kPlus> <C-a>
+" :nnoremap <kMinus> <C-x>
+
 :inoremap jk <esc>
 " :inoremap <esc> <nop>
 
@@ -140,7 +145,7 @@ autocmd FileType python setlocal ts=2 sw=2 sts=2 expandtab
 
 " set indentation=4
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-"autocmd FileType scala setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType scala set ts=4 sw=4 sts=4 expandtab
 autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
 
 

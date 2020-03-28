@@ -98,6 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ..='cd ..'
+alias ...='cd ..; cd ..'
+alias c='clear'
 alias proxy='export all_proxy=socks5://127.0.0.1:1080'
 alias unproxy='unset all_proxy'
 alias vim="/usr/local/Cellar/neovim/0.3.4/bin/nvim"
