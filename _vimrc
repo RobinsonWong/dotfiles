@@ -54,6 +54,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-airline/vim-airline'
+Plugin 'godlygeek/tabular'
+" Plugin 'plasticboy/vim-markdown'
 
 " Color schemes
 Plugin 'flazz/vim-colorschemes'
@@ -61,7 +63,7 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 filetype plugin indent on
 "--------------------------------------------------
-:exec 'cd ' . fnameescape('D:\repos-mine\')
+:exec 'cd ' . fnameescape('D:\repos-mine-doc\')
 set nobackup
 set nowritebackup
 set noswapfile
@@ -141,11 +143,14 @@ autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set f
 " set indentation=2
 autocmd FileType html setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType ruby setlocal ts=2 sw=2 sts=2 expandtab
-autocmd FileType python setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType scala setlocal ts=2 sw=2 sts=2 expandtab
 
 " set indentation=4
+autocmd FileType python setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType java setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType go setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType rust setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType scala set ts=4 sw=4 sts=4 expandtab
 autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
 
 

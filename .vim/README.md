@@ -51,4 +51,5 @@ git submodule init
 git submodule update
 ```
 
+4. intall in Vundle, lanch vim, and `:PluginInstall`
 
