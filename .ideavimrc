@@ -1,0 +1,60 @@
+" configuration
+set hlsearch
+set incsearch
+set cursorline  " Highlight the current line
+
+:let mapleader = ","
+:inoremap jk <esc>
+:nnoremap - dd
+
+" configuration for ideavim
+
+" Global
+map ,e :action SearchEverywhere<CR>
+map ,c :action GoToClass<CR>
+map ,f :action GoToFile<CR>
+map ,a :action GoToAction<CR>
+
+map ,r :action RenameElement<CR>
+map ,z :action ToggleDistractionFreeMode<CR>
+
+" Show
+map ss :action FileStructurePopup<CR>
+map su :action FindUsages<CR>
+map sd :action QuickJavaDoc<CR>
+map se :action ShowErrorDescription<CR>
+map sf :action ShowIntentionActions<CR>
+map si :action QuickImplementations<CR>
+map sp :action ShowFilePath<CR>
+
+" GoTo
+map gd :action GotoDeclaration<CR>
+map gc :action GotoClass<CR>
+map gu :action GotoSuperMethod<CR>
+map gi :action GotoImplementation<CR>
+map gb :action JumpToLastChange<CR>
+
+" Copy
+map cr :action CopyReference<CR>
+map ca :action CopyAbsolutePath<CR>
+map cn :action CopyReference<CR>
+
+" New
+map nf :action NewFile<CR>
+map nc :action NewClass<CR>
+
+" Run
+map r. :action ChooseRunConfiguration<CR>
+map rc :action RunClass<CR>
+map rt :action RunToCursor<CR>
+
+" Debug
+map d. :action ChooseDebugConfiguration<CR>
+map dc :action DebugClass<CR>
+
+" Breakpoint
+map bt :action ToggleLineBreakpoint<CR>
+map be :action EditBreakpoint<CR>
+map bl :action ViewBreakpoints<CR>
+
+
