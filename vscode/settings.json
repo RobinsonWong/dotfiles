@@ -1,0 +1,63 @@
+{
+    "http.proxy": "http://127.0.0.1:2080",
+    "https.proxy": "https://127.0.0.1:2080",
+    "http.proxyStrictSSL": false,
+    "http.proxyAuthorization": null,
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path.windows": "C:\\Users\\ttbao\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe",
+        "vscode-kubernetes.helm-path.windows": "C:\\Users\\ttbao\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe"
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "editor.fontSize": 15,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.runInTerminal": true,
+    "terminal.external.windowsExec": "C:\\Tools\\Git\\git-bash.exe",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "GitBash": {
+            //"source": "GitBash",
+            "path": [
+                "C:\\Tools\\Git\\bin\\bash.exe"
+            ],
+            "icon": "terminal-bash"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "GitBash",
+    "update.mode": "none",
+    "emmet.triggerExpansionOnTab": true,
+    //关于vim的配置文件
+    "vim.leader": ",",
+    "vim.handleKeys": {
+            "<C-a>": false,
+            "<C-c>": false,
+            "<C-x>": false,
+            "<C-v>": false,
+            "<C-b>": false,
+            "<C-e>": false,
+            "<C-f>": false,
+            "<C-n>": false,
+    },
+    "vim.commandLineModeKeyBindingsNonRecursive": [],
+    "vim.insertModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["-"],
+            "commands":["dd"]
+        },
+    ]
+
+}
