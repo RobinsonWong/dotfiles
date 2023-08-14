@@ -1,7 +1,7 @@
 set nocompatible
-" source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
 
 set diffexpr=MyDiff()
 function MyDiff()
@@ -39,37 +39,46 @@ endfunction
 filetype off
 
 " Plugin Management
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-call vundle#begin()
-" Let Vundle manage itself
-Plugin 'VundleVim/Vundle.vim'
+" for vim: download `plug.vim` into `$VIM_HOME/vim90/autoload/`
+" for neovim: download `plug.vim` into `~/AppData/Local/nvim-data/site/autoload/`,  copy `cp .vimrc ~/AppData/Local/nvim/init.vim`
+call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'ervandew/supertab'
-Plugin 'majutsushi/tagbar'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-airline/vim-airline'
-Plugin 'godlygeek/tabular'
-" Plugin 'plasticboy/vim-markdown'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'mileszs/ack.vim'
+"Plug 'tpope/vim-rails'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
+Plug 'godlygeek/tabular'
+
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim'
 
 " Color schemes
-Plugin 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'flazz/vim-colorschemes'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 "--------------------------------------------------
-:exec 'cd ' . fnameescape('D:\repos-mine-doc\')
+:exec 'cd ' . fnameescape('D:/repos-mine-doc/')
 set nobackup
 set nowritebackup
 set noswapfile
 set history=500
 set laststatus=2
 set autowrite
+set wildmode=longest,list
+set wildmenu
+set wildmode=full
+set path+=D:/repos-mine-doc/**
 
 set go=     " set no tool bar and menu bar
 if has('gui_running')
@@ -117,6 +126,13 @@ colorscheme solarized
 :nnoremap <leader>sv :so $MYVIMRC<cr>
 :nnoremap <leader>w <c-w>w
 
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+:noremap <c-right> <c-w><
+:noremap <c-left> <c-w>>
+:noremap <c-up> <c-w>-
+:noremap <c-down> <c-w>+
+
 :noremap <C-I> <C-A>
 " remap increase /decrease by +/-
 " :nnoremap <kPlus> <C-a>
@@ -134,8 +150,12 @@ colorscheme solarized
 :nnoremap <c-u> viw~
 
 :nnoremap <F3> :NERDTree<CR>
-:nnoremap <F5> "=strftime("%c")<CR>P
-:inoremap <F5> <C-R>=strftime("%c")<CR>
+:nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %A")<CR>P
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S %A")<CR>
+
+
+map <leader>f :FZF<cr>
+
 
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown

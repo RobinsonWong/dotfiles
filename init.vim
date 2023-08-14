@@ -1,41 +1,70 @@
-" step 1: clone pulgin manager
-"   `git clone https://github.com/junegunn/vim-plug.git %userprofile%/.config/nvim/bundle`
-" step 2: put `init.vim` file in this location
-"   %userprofile%\AppData\Local\nvim\init.vim      " on windows
-"   ~/.config/nvim/init.vim      " on linux
-" step 3: in vim call `:PlugInstall`
+"--------------------------------------------------
+" Customer Settings Begin
+"--------------------------------------------------
+filetype off
 
+" Plugin Management
+" for vim: download `plug.vim` into `$VIM_HOME/vim90/autoload/`
+" for neovim: download `plug.vim` into `~/AppData/Local/nvim-data/site/autoload/`,  copy `cp .vimrc ~/AppData/Local/nvim/init.vim`
+call plug#begin('~/.vim/plugged')
 
-" call plug#begin('~/.config/nvim/bundle') " user home varaible on Linux: `~`
-call plug#begin('%userprofile%/.config/nvim/bundle') " user home varaible on Windows: `%userprofile%`
-Plug 'iCyMind/NeoSolarized'
-Plug 'mattn/emmet-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'mileszs/ack.vim'
-" Plug 'ervandew/supertab'
+" Plugins
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'mileszs/ack.vim'
+"Plug 'tpope/vim-rails'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/tabular'
+
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim'
+
+" Color schemes
+Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 
-" call PlugInstall to install new plugins
 call plug#end()
-
-"--------------------------------------------------
 filetype plugin indent on
+"--------------------------------------------------
+:exec 'cd ' . fnameescape('D:/repos-mine-doc/')
+set nobackup
+set nowritebackup
+set noswapfile
+set history=500
+set laststatus=2
+set autowrite
+set wildmode=longest,list
+set wildmenu
+set wildmode=full
+set path+=D:/repos-mine-doc/**
+
+set go=     " set no tool bar and menu bar
+if has('gui_running')
+  " set guifont=Courier\ New:h16
+  " set guifont=Source\ Code\ Pro:h16
+  set guifont=Consolas:h13
+endif
+" set menu to english
+let $LANG='en_US'
+set langmenu=en_US
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,utf-16,gbk,gb2312,gb18030,big5,latin1
+
 set nu
 set ruler
-" set lines=30 columns=120 " only for GVIM on windows
-set tabstop=2 shiftwidth=2
+set lines=35 columns=120
+set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab   " replace tab with space
 set shiftround
 set showcmd
-set nowrap
+set wrap
 " set for backspace
 set backspace=2
 set backspace=indent,eol,start
@@ -43,64 +72,85 @@ set hlsearch
 set incsearch
 set cursorline  " Highlight the current line
 
-set nobackup
-set nowritebackup
-set noswapfile
-set history=500
-set laststatus=2
-set autowrite
-
-" set menu to english
-let $LANG='en_US'
-set langmenu=en_US
-set fileencodings=utf-8,ucs-bom,utf-16,gbk,gb2312,gb18030,big5,latin1
-
 " Display extra whitespace
 " set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+"set list listchars=trail:.,extends:>,precedes:<
 set list listchars=tab:>-,trail:.,extends:>,precedes:<
 
 syntax enable
-set termguicolors
+" set background=light
+set t_Co=16
+let g:solarized_termcolors=16
 set background=dark
-colorscheme NeoSolarized
-
-let g:neosolarized_contrast = "normal"
-let g:neosolarized_visibility = "normal"
-let g:neosolarized_vertSplitBgTrans = 1
-let g:neosolarized_bold = 1
-let g:neosolarized_underline = 1
-let g:neosolarized_italic = 0
+colorscheme solarized
+" color dracula " set color theme to dracula
 
 " --------------------------------------------------
-let mapleader = ","
-nnoremap <leader>ev :vsp $MYVIMRC<cr>
-nnoremap <leader>sv :so $MYVIMRC<cr>
-nnoremap <leader>w <c-w>w
+:let mapleader = ","
+:nnoremap <leader>ev :vsp $MYVIMRC<cr>
+:nnoremap <leader>sv :so $MYVIMRC<cr>
+:nnoremap <leader>w <c-w>w
 
-inoremap jk <esc>
-" inoremap <esc> <nop>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+:noremap <c-right> <c-w><
+:noremap <c-left> <c-w>>
+:noremap <c-up> <c-w>-
+:noremap <c-down> <c-w>+
+
+:noremap <C-I> <C-A>
+" remap increase /decrease by +/-
+" :nnoremap <kPlus> <C-a>
+" :nnoremap <kMinus> <C-x>
+
+:inoremap jk <esc>
+" :inoremap <esc> <nop>
 
 " Delete one line
-nnoremap - dd
-inoremap <c-d> <esc>ddi
+:nnoremap - dd
+:inoremap <c-d> <esc>ddi
 
 " Uppercase the word
-inoremap <c-u> <esc>viw~
-nnoremap <c-u> viw~
+:inoremap <c-u> <esc>viw~
+:nnoremap <c-u> viw~
 
-nnoremap <F3> :NERDTree<CR>
-nnoremap <F5> "=strftime("%c")<CR>P
-inoremap <F5> <C-R>=strftime("%c")<CR>
+:nnoremap <F3> :NERDTree<CR>
+:nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %A")<CR>P
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S %A")<CR>
+
+
+map <leader>f :FZF<cr>
+
 
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown
 
-autocmd FileType html setlocal ts=2 sw=2 expandtab
-autocmd FileType ruby setlocal ts=2 sw=2 expandtab
+" set indentation=2
+autocmd FileType html setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType ruby setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType scala setlocal ts=2 sw=2 sts=2 expandtab
 
-autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
+" set indentation=4
+autocmd FileType python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType java setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType go setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType rust setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
 
+
+" For startify
+" [Genereate ASCII Art](http://patorjk.com/software/taag/#p=display&h=0&f=Big&t=Hi%2C%20Robin!)
+let g:startify_custom_header = [
+\ '  _    _   _         _____            _       _           _ ',
+\ ' | |  | | (_)       |  __ \          | |     (_)         | |',
+\ ' | |__| |  _        | |__) |   ___   | |__    _   _ __   | |',
+\ ' |  __  | | |       |  _  /   / _ \  | |_ \  | | | |_ \  | |',
+\ ' | |  | | | |  _    | | \ \  | (_) | | |_) | | | | | | | |_|',
+\ ' |_|  |_| |_| ( )   |_|  \_\  \___/  |_.__/  |_| |_| |_| (_)',
+\ '              |/                                            ',
+\ '',
+\]
 
 "--------------------------------------------------
 " Customer Settings End
