@@ -2,10 +2,11 @@
 
 
 [alias]
+  s = status
+  d = diff
   co = checkout
   br = branch
   cm = commit
-  st = status
   unstage = reset HEAD --
   dog = log --all --decorate --oneline --graph
 

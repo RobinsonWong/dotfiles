@@ -71,6 +71,7 @@ filetype plugin indent on
 :exec 'cd ' . fnameescape('D:/repos-mine-doc/')
 set nobackup
 set nowritebackup
+set noundofile
 set noswapfile
 set history=500
 set laststatus=2
@@ -153,8 +154,14 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 :nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %A")<CR>P
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S %A")<CR>
 
+map te :tabnew<cr>
+map tp :-tabnext<cr>
+map tn :+tabnext<cr>
+map bp :bp<cr>
+map bn :bn<cr>
 
-map <leader>f :FZF<cr>
+
+map <leader>f :call fzf#run({'options': '--preview "bat --color=always -n {}" --preview-window "right:120"'})<cr>
 
 
 " Other settings
