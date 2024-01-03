@@ -65,6 +65,7 @@ filetype plugin indent on
 "--------------------------------------------------
 " :exec 'cd ' . fnameescape('D:\repos-mine-doc\')
 set nobackup
+set noundofile
 set nowritebackup
 set noswapfile
 set history=500
