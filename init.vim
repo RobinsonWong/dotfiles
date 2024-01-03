@@ -38,8 +38,8 @@ filetype plugin indent on
 "--------------------------------------------------
 :exec 'cd ' . fnameescape('D:/repos-mine-doc/')
 set nobackup
-set noundofile
 set nowritebackup
+set noundofile
 set noswapfile
 set history=500
 set laststatus=2
@@ -118,9 +118,14 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 :inoremap <c-u> <esc>viw~
 :nnoremap <c-u> viw~
 
-:nnoremap <F3> :NERDTree<CR>
+:nnoremap <F3> :NERDTreeToggle<CR>
 :nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %A")<CR>P
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S %A")<CR>
+
+:nnoremap <F8> :TagbarToggle<CR>
+
+map Q :q<cr>
+map W :wq<cr>
 
 map te :tabnew<cr>
 map tp :-tabnext<cr>
@@ -128,9 +133,12 @@ map tn :+tabnext<cr>
 map bp :bp<cr>
 map bn :bn<cr>
 
-map <leader>f :call fzf#run({'options': '--preview "bat --color=always -n {}" --preview-window "right:120"'})<cr>
+:noremap <leader>b :terminal "C:/Tools/Git/bin/bash.exe"<cr>
+:noremap <leader>c :terminal<cr>
+:tnoremap <esc> <C-\><C-N>
 
-
+map <leader>f :call fzf#run({'sink': 'tabedit', 'options': '--preview "bat --color=always -n {}" --preview-window "right:120"'})<cr>
+" map <leader>f :call fzf#run({'options': '--preview cat {} " --preview-window "right:120"'})<cr>
 
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown

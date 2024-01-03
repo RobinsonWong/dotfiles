@@ -11,8 +11,8 @@
   dog = log --all --decorate --oneline --graph
 
 [http]
-	proxy = socks5://localhost:1080
+  proxy = socks5://localhost:1080
 [https]
-	proxy = socks5://localhost:1080
+  proxy = socks5://localhost:1080
 
 

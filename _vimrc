@@ -1,3 +1,4 @@
+" vimrc for GVIM windows
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vim
@@ -36,6 +37,7 @@ endfunction
 "--------------------------------------------------
 " Customer Settings Begin
 "--------------------------------------------------
+set nocompatible
 filetype off
 
 " Plugin Management
@@ -150,9 +152,14 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 :inoremap <c-u> <esc>viw~
 :nnoremap <c-u> viw~
 
-:nnoremap <F3> :NERDTree<CR>
+:nnoremap <F3> :NERDTreeToggle<CR>
 :nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %A")<CR>P
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S %A")<CR>
+
+:nnoremap <F8> :TagbarToggle<CR>
+
+map Q :q<cr>
+map W :wq<cr>
 
 map te :tabnew<cr>
 map tp :-tabnext<cr>
@@ -161,8 +168,8 @@ map bp :bp<cr>
 map bn :bn<cr>
 
 
-map <leader>f :call fzf#run({'options': '--preview "bat --color=always -n {}" --preview-window "right:120"'})<cr>
-
+map <leader>f :call fzf#run({'sink': 'tabedit', 'options': '--preview "bat --color=always -n {}" --preview-window "right:120"'})<cr>
+" map <leader>f :call fzf#run({'options': '--preview cat {} " --preview-window "right:120"'})<cr>
 
 " Other settings
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.mdown,*.mkd,*.mkdn,*.markdown set filetype=markdown
