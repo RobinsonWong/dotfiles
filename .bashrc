@@ -37,39 +37,39 @@ function v() { vim $(zf); }
 # export FZF_DEFAULT_OPTS='--preview "bat --color=always -n {}" --preview-window "right:65%"'
 
 function qcd() {
-	case "$1" in 
-		notes)
-			cd /d/repos-mine-doc
-			;;
-		github)
-			cd /d/repos-github
-			;;
-		myrepo)
-			cd /d/repos-mine
-			;;
-		opensource)
-			cd /d/code-opensource
-			;;
-		bookcode)
-			cd /d/code-books-source-code
-			;;
-		pdf)
-			cd /h/books
-			;;
-		*)
-			echo "qcd: directory '$1' not exist"
-			;;
-	esac
+  case "$1" in 
+    notes)
+      cd /d/repos-mine-doc
+      ;;
+    github)
+      cd /d/repos-github
+      ;;
+    myrepo)
+      cd /d/repos-mine
+      ;;
+    opensource)
+      cd /d/code-opensource
+      ;;
+    bookcode)
+      cd /d/code-books-source-code
+      ;;
+    pdf)
+      cd /h/books
+      ;;
+    *)
+      echo "qcd: directory '$1' not exist"
+      ;;
+  esac
 }
 complete -W "notes github myrepo opensource bookcode pdf" qcd
 
 function initpushd() {
-	pushd /d/repos-mine-doc
-	pushd /d/repos-github
-	pushd /d/repos-mine
-	pushd /d/code-opensource
-	pushd /d/code-books-source-code
-	pushd /h/books
-	dirs -v
+  pushd /d/repos-mine-doc
+  pushd /d/repos-github
+  pushd /d/repos-mine
+  pushd /d/code-opensource
+  pushd /d/code-books-source-code
+  pushd /h/books
+  dirs -v
 }
 
